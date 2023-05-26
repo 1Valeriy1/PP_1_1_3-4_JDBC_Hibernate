@@ -8,29 +8,31 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserServiceImpl extends UserDaoJDBCImpl implements UserService {
+public class UserServiceImpl implements UserService {
+
+    private UserDaoJDBCImpl user = new UserDaoJDBCImpl();
 
     public void createUsersTable() {
-        super.createUsersTable();
+        user.createUsersTable();
     }
 
     public void dropUsersTable() {
-        super.dropUsersTable();
+        user.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
-       super.saveUser(name, lastName, age);
+       user.saveUser(name, lastName, age);
     }
 
     public void removeUserById(long id) {
-        super.removeUserById(id);
+        user.removeUserById(id);
     }
 
     public List<User> getAllUsers() {
-        return super.getAllUsers();
+        return user.getAllUsers();
     }
 
     public void cleanUsersTable() {
-        super.cleanUsersTable();
+        user.cleanUsersTable();
     }
 }

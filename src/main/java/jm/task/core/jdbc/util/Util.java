@@ -10,19 +10,29 @@ public class Util {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root1234";
 
+    private static Connection connection;
+
     public static void main(String[] args) {
-        
+
     }
-    public Connection getConnection() {
-        Connection connection = null;
+
+    public static Connection getConnection() {
         try {
-            connection = DriverManager.getConnection(
-                    URL,
-                    USERNAME, PASSWORD);
+        connection = DriverManager.getConnection(
+                URL,
+                USERNAME, PASSWORD);
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+        //System.out.println("Connection OK"); // это для проверки коннекта
+    }
+        return connection;
+    }
+    public static void close(){
+        try {
+            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        //System.out.println("Connection OK"); // это для проверки коннекта
-        return connection;
     }
+
 }
