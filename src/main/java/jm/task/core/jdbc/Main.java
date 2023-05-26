@@ -22,7 +22,7 @@ public class Main {
 // таблица users в список
         dao.getAllUsers();
         //System.out.println("\nТаблица до очищения users:");
-        System.out.println(dao.getAllUsers());
+        //System.out.println(dao.getAllUsers());
 // удаление user по id
         dao.removeUserById(1L);
         //System.out.println("\nТаблица после удаления первого users:");
