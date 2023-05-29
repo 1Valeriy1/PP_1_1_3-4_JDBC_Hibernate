@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         // реализуйте алгоритм здесь
         UserService service = new UserServiceImpl();
 // удаление таблицы
@@ -32,6 +32,6 @@ public class Main {
         service.cleanUsersTable();
         //System.out.println("\nТаблица после очищения users:");
         //System.out.println(service.getAllUsers());
-        Util.getConnection().close();
+        Util.close();
     }
 }
