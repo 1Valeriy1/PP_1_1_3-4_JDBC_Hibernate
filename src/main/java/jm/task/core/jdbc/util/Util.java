@@ -12,10 +12,6 @@ public class Util {
 
     private static Connection connection;
 
-    public static void main(String[] args) {
-
-    }
-
     public static Connection getConnection() {
         try {
         connection = DriverManager.getConnection(
@@ -23,8 +19,8 @@ public class Util {
                 USERNAME, PASSWORD);
     } catch (SQLException e) {
         throw new RuntimeException(e);
-        //System.out.println("Connection OK"); // это для проверки коннекта
     }
+        //System.out.println("Connection OK"); // проверка коннекта
         return connection;
     }
     public static void close(){

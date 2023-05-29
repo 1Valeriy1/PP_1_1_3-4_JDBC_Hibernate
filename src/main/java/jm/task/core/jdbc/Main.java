@@ -1,5 +1,6 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
 import jm.task.core.jdbc.util.Util;
 
@@ -9,28 +10,28 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) throws SQLException {
         // реализуйте алгоритм здесь
-        UserServiceImpl dao = new UserServiceImpl();
+        UserService service = new UserServiceImpl();
 // удаление таблицы
-        dao.dropUsersTable();
+        service.dropUsersTable();
 // создание таблицы
-        dao.createUsersTable();
+        service.createUsersTable();
 // добавление users
-        dao.saveUser("Harry", "Poter", (byte) 21);
-        dao.saveUser("Larry", "Loter", (byte) 12);
-        dao.saveUser("Jarry", "Soter", (byte) 127);
-        dao.saveUser("Barry", "Koter", (byte) 55);
+        service.saveUser("Harry", "Poter", (byte) 21);
+        service.saveUser("Larry", "Loter", (byte) 12);
+        service.saveUser("Jarry", "Soter", (byte) 127);
+        service.saveUser("Barry", "Koter", (byte) 55);
 // таблица users в список
-        dao.getAllUsers();
+        service.getAllUsers();
         //System.out.println("\nТаблица до очищения users:");
-        //System.out.println(dao.getAllUsers());
+        //System.out.println(service.getAllUsers());
 // удаление user по id
-        dao.removeUserById(1L);
+        service.removeUserById(1L);
         //System.out.println("\nТаблица после удаления первого users:");
-        //System.out.println(dao.getAllUsers());
+        //System.out.println(service.getAllUsers());
 // очищение таблицы
-        dao.cleanUsersTable();
+        service.cleanUsersTable();
         //System.out.println("\nТаблица после очищения users:");
-        //System.out.println(dao.getAllUsers());
+        //System.out.println(service.getAllUsers());
         Util.getConnection().close();
     }
 }
